@@ -1,0 +1,336 @@
+#navbar {
+    height: 50px;
+    background-color: #ff8000;
+    min-width: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#navbar > .navbar-brand {
+    font-size: 20px;
+    margin-left: 5px;
+    
+}
+
+#navbar > .navbar-brand > a {
+    color: #f8f8f8;
+}
+
+#navbar > .navbar-brand > a:hover {
+    color: #d8d8d8;
+}
+
+#navbar > .header-item {
+    align-self: center;
+    width: 100%
+}
+
+#navbar > .header-item.-right {
+    text-align: right;
+    padding-right: 10px;
+    display: block;
+    color: #f8f8f8;
+}
+
+#content-wrapper {
+    overflow-x: hidden;
+}
+
+.ui.container.main-container {
+    width: auto !important;
+    max-width: 1080px !important;
+}
+
+.main-container > .profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    border-bottom: 1px solid #d9d9d9;
+    /* padding: 0.3rem 0.75rem; */
+    padding: 0.75rem 0.3rem;
+}
+
+.profile-container > .image-container {
+    width: 100px;
+    height: 100px;
+    margin-right: 1.25rem;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.profile-container > .profile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 2;
+}
+
+.profile-content > .user-detail {
+    /* align-self: center; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    flex-grow: 2;
+
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.25rem;
+}
+
+.profile-content > .user-detail > div {
+    margin-bottom: 10px;
+}
+
+.profile-content > .button-group {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-content > .button-group button{
+    font-size: 0.75rem;
+    width: 45%;
+    max-width: 150px;
+    padding: 0.5rem;
+    margin: 0 5px;
+}
+
+.profile-content > .button-group button i {
+    margin-right: 5px;
+}
+
+.main-container > .subject-container {
+    /* border: 1px solid black; */
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.subject-container > .column {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.subject-container .subject {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    border: 1px solid #bfbfbf;
+    border-radius: 10px 10px;
+    margin-bottom: 1rem;
+}
+
+.subject-container .subject > .header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.subject > .header > .subject-name {
+    margin-left: 0.5rem;
+    width: 65%;
+}
+
+.subject > .header > .delete-icon {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.subject > .queue {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.subject > .queue > .queue-number,
+.subject > .queue > .remaining-queue {
+    background-color: #dedede;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    height: 4rem;
+    width: 45%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    
+}
+
+.subject > .queue > .remaining-queue {
+    background-color: #ffe600;
+}
+
+.subject > .queue > .subjectname {
+    margin-top: 1rem;
+    font-family: 'Kanit', sans-serif;
+}
+
+.subject > .queue > > .queue-number {
+    /* margin-top: auto; */
+}
+
+.ui.modal.delete-modal > .content,
+.ui.modal.delete-modal > .button-group {
+    font-family: 'Kanit';
+    border: none;
+    text-align: center;
+}
+
+.ui.modal.delete-modal > .content {
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+.ui.modal.delete-modal > .button-group {
+    padding: 1rem;
+}
+
+.ui.modal.delete-modal > .button-group button {
+    font-family: 'Kanit';
+}
+
+.ui.modal.delete-modal > .content > .subject-name {
+    font-weight: bold;
+}
+
+.ui.modals.delete-modal > .actions {
+    justify-content: center;
+}
+
+.ui.modals > .add-modal,
+.ui.modal.add-modal > .header {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    border: none;
+}
+
+.ui.modal.add-modal > .header {
+    padding-bottom: 0.5rem;
+}
+
+.ui.modal.add-modal > .content {
+    display: flex;
+    flex-direction: column;
+
+    /* height: 300px; */
+    text-align: center;
+}
+
+.ui.modal.add-modal > .content > .description {
+    margin-bottom: 1.5rem;
+}
+
+.ui.modal.add-modal {
+    margin-top: 10px;
+}
+
+.ui.modal.add-modal .button-group {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-top: 1.5rem;
+}
+
+.ui.modal.add-modal .button-group * {
+    height: 3rem;
+    width: 45%;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ui.modal.add-modal .button-group > .confirm-button {
+    background-color: #9ad100;
+    color: white;
+}
+
+.ui.modal.add-modal .button-group > .back-button {
+    background-color: #dedede;
+    
+}
+
+.ui.modal.success-modal > .header {
+    text-align: center;
+    border: none;
+}
+
+.ui.modal.success-modal > .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ui.modal.success-modal > .content .success-icon {
+    height: 100px;
+    width: 100px;
+    background-color: #dedede;
+    border: 3px solid black;
+    border-radius: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ui.modal.success-modal > .button-group {
+    margin-top: 10px;
+}
+
+.-big {
+    font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 700px) {
+    #navbar > .navbar-brand {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    .main-container > .profile-container {
+        padding: 0.75rem 1.25rem;
+        margin: 0 100px;
+    }
+
+    .profile-container > .profile-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .main-container > .subject-container {
+        margin: 1rem 100px;
+    }
+
+    .subject-container > .subject {
+        width: 45%;
+    }
+
+    .subject-container > .column {
+        width: 45%;
+    }
+
+    .main-container > .subject-container {
+        flex-direction: row;
+        align-items: unset;
+    }
+
+    .subject > .queue > .queue-number,
+    .subject > .queue > .remaining-queue {
+        flex-direction: row;
+        height: 2rem;
+        width: 100%;
+        padding: 0 0.5rem;
+        justify-content: space-between;
+    }
+
+    .subject-container .subject > .queue {
+        flex-direction: column;
+        
+    }
+}

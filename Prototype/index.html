@@ -1,0 +1,188 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+        <link rel="stylesheet" href="./styles/index.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Welcome </title>
+        <link rel="icon" href="./pics/kmitl_logo.png"
+    </head>
+
+    <body>
+        <nav id="navbar" class="ui secondary pointing menu">
+            <div class="navbar-brand header-item">
+              <a href="#">KMITL</a>
+            </div>
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+              <div class="header-item -right"> Welcome </div>
+            <!-- </div> -->
+          </nav>
+
+          <div class="content-wrapper" id="content-wrapper">
+            <div class="ui container main-container">
+              <div class="profile-container">
+                <div style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg')"
+                class="image-container"></div>
+                <div class="profile-content">
+                  <div class="user-detail">
+                    <div>นายดีโอ บรันโด</div>
+                    <div>59069420</div>
+                  </div>
+                  <div class="button-group">
+                    <button class="ui button edit-button" onclick="goToProfile()">
+                      <i class="far fa-edit"></i>แก้ไขข้อมูล
+                    </button>
+                    <button class="ui button orange add-button" onclick="onAddSubject()"> 
+                    <i class="fas fa-plus"></i>เพิ่มวิชา
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ui modal tiny add-modal">
+                  <div class="header">เพิ่มวิชา</div>
+                  <div class="content">
+                    <p class="description">กรอกรหัสวิชาที่ต้องการเพิ่ม</p>
+                    <div class="ui input">
+                      <input name="subject_id" type="text"/>
+                    </div>
+                    
+                    <div class="button-group">
+                      <button class="ui button confirm-button"> ยืนยัน</button>
+                      <button class="ui button back-button" onclick="goTheFuckBack($('.ui.modal.add-modal'))"> ปิด </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="subject-container">
+                <div class="column">
+                  <div class="subject">
+                    <div class="header">
+                      <div class="subject-id"><strong>06016216</strong></div>
+                      <div class="subject-name">Special Topics in Information Technology - Image Transformation and Recognition</div>
+                      <div onclick="onDeleteSubject(06016216)" class="delete-icon"><i class="far fa-trash-alt"></i></div>
+                    </div>
+                    <div class="queue">
+                      <div class="queue-number"><span>คิวของคุณ</span><strong class="-big">30</strong></div>
+                      <div class="remaining-queue"><span>คิวที่เหลือ</span><strong class="-big">12</strong></div>
+                    </div>
+                    <div></div>
+                  </div>
+  
+                  <div class="subject">
+                    <div class="header">
+                      <div class="subject-id"><strong>06016217</strong></div>
+                      <div class="subject-name">Sautee a Baby Corn with Butter</div>
+                      <div class="delete-icon"><i class="far fa-trash-alt"></i></div>
+                    </div>
+                    <div class="queue">
+                      <div class="queue-number"><span>คิวของคุณ</span><strong class="-big">30</strong></div>
+                      <div class="remaining-queue"><span>คิวที่เหลือ</span><strong class="-big">12</strong></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div class="subject">
+                    <div class="header">
+                      <div class="subject-id"><strong>06016218</strong></div>
+                      <div class="subject-name">Whopper Jr. without Mayonaise</div>
+                      <div class="delete-icon"><i class="far fa-trash-alt"></i></div>
+                    </div>
+                    <div class="queue">
+                      <div class="queue-number"><span>คิวของคุณ</span><strong class="-big">30</strong></div>
+                      <div class="remaining-queue"><span>คิวที่เหลือ</span><strong class="-big">12</strong></div>
+                    </div>
+                  </div>
+                  
+                  <div class="subject">
+                    <div class="header">
+                      <div class="subject-id"><strong>06016219</strong></div>
+                      <div class="subject-name">Something Lorem Ipsum for your design, website, and copywriting works</div>
+                      <div class="delete-icon"><i class="far fa-trash-alt"></i></div>
+                    </div>
+                    <div class="queue">
+                      <div class="queue-number"><span>คิวของคุณ</span><strong class="-big">30</strong></div>
+                      <div class="remaining-queue"><span>คิวที่เหลือ</span><strong class="-big">12</strong></div>
+                    </div>
+                  </div>
+                  
+                </div>
+                
+                <div class="ui modal tiny delete-modal" id="delete-modal">
+                  <div class="content">
+                      ต้องการยกเลิกการจองในรายวิชา <span class="subject-name">Special Topics in Information Technology -
+                      Image Transformation and Recognition</span> ใช่หรือไม่
+                  </div>
+                  <div class="button-group">
+                      <button class="ui button">ไม่</button>
+                      <button class="ui button red" id="confirm-delete">ใช่</button>
+                  </div>
+              </div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="ui modal mini success-modal" id="success-modal">
+            <div class="header">เสร็จสิ้น</div>
+            <div class="content">
+              <div>
+
+              </div>
+              <div class="success-icon">
+                
+              </div>
+              <div class="button-group">
+                <button class="ui button back-button" onclick="goTheFuckBack($('.ui.modal.success-modal'))"> ย้อนกลับ </button>
+              </div>
+              
+            </div>
+          </div>
+          
+          <script>
+            onDeleteSubject = () => {
+              const $deleteModal = $('#delete-modal')
+                    $successModal = $('#success-modal')
+              $successModal.modal('attach events', '.ui.tiny.modal.delete-modal #confirm-delete')
+              $deleteModal
+              .modal('setting', 'transition', 'horizontal flip')
+              .modal('show')
+            }
+
+            onAddSubject = () => {
+              const $addModal = $('.ui.tiny.modal.add-modal')
+              // const $addModal = $('.ui.mini.modal.success-modal')
+              const $successModal = $('.ui.mini.modal.success-modal')
+
+              $addModal.modal({
+                allowMultiple: true
+              })
+
+              $successModal.modal('attach events', '.ui.tiny.modal.add-modal .confirm-button')
+
+              $addModal
+              .modal('setting', 'transition', 'vertical flip')
+              .modal('show')
+            }
+
+            goTheFuckBack = (modal) => {
+              const $addModal = $('.ui.tiny.modal.add-modal')
+              modal.modal('hide')
+            }
+
+            goToProfile = () => {
+              window.location.href = './profile.html'
+            }
+          </script>
+    </body>
+</html>

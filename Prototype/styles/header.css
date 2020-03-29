@@ -1,0 +1,41 @@
+#navbar {
+    height: 50px;
+    background-color: #ff8000;
+    min-width: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#navbar > .navbar-brand {
+    font-size: 20px;
+    margin-left: 5px;
+    
+}
+
+#navbar > .navbar-brand > a {
+    color: #f8f8f8;
+}
+
+#navbar > .navbar-brand > a:hover {
+    color: red;
+}
+
+#navbar > .header-item {
+    align-self: center;
+    width: 100%
+}
+
+#navbar > .header-item.-right {
+    text-align: right;
+    padding-right: 5px;
+    display: block;
+    color: #f8f8f8;
+}
+
+@media only screen and (min-width: 500px) {
+    #navbar > .navbar-brand {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+}
