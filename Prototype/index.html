@@ -135,24 +135,44 @@
       </div>
     </div>
 
+    <div class="ui modal mini password-modal" id="password-modal">
+      <div class="header">
+        กรุณากรอกรหัสผ่านของท่าน
+      </div>
+      <div class="content">
+        <form name="password-confirm" method="POST">
+        
+          <div class="ui input">
+            <input type="password" name="password"/>
+          </div>
+          <button class="ui button red"> ยืนยัน</button>
+        </form>
+      </div>
+    </div>
+
     <script>
-      onDeleteSubject = () => {
+      $(document).ready(() => {
         const $deleteModal = $('#delete-modal');
         $successModal = $('#success-modal');
+
         $successModal.modal('attach events', '.ui.tiny.modal.delete-modal #confirm-delete');
-        $deleteModal.modal('setting', 'transition', 'horizontal flip').modal('show');
+        $successModal.modal('attach events', '.ui.tiny.modal.add-modal .confirm-button');
+        
+        $deleteModal.modal('setting', 'transition', 'horizontal flip')
+      })
+
+      onDeleteSubject = () => {
+        const $deleteModal = $('#delete-modal');
+        $deleteModal.modal('show');
       };
 
       onAddSubject = () => {
         const $addModal = $('.ui.tiny.modal.add-modal');
-        // const $addModal = $('.ui.mini.modal.success-modal')
         const $successModal = $('.ui.mini.modal.success-modal');
 
         $addModal.modal({
           allowMultiple: true
         });
-
-        $successModal.modal('attach events', '.ui.tiny.modal.add-modal .confirm-button');
 
         $addModal.modal('setting', 'transition', 'vertical flip').modal('show');
       };
