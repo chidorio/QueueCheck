@@ -49,6 +49,10 @@ body {
     overflow-x: hidden;
 }
 
+#success-modal {
+    max-width: 300px;
+}
+
 .login-form .login-field>.ui.input.focus>input,
 .ui.input>input:focus {
         border-color: #ff8000;

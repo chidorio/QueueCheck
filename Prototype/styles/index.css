@@ -83,7 +83,7 @@
 .subject-container>.column {
     display: flex;
     flex-direction: column;
-    /* width: 90%; */
+    width: 100%;
 }
 
 .subject-container .subject {
@@ -245,6 +245,28 @@
 
 .ui.modal.success-modal>.button-group {
     margin-top: 10px;
+}
+
+.ui.modals>.password-modal,
+.ui.modal.password-modal>.header {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    border: none;
+}
+
+.ui.modal.password-modal>.header {
+    padding-bottom: 0.5rem;
+}
+
+.ui.modal.password-modal form[name="password-confirm"] {
+    /* background-color: green; */
+}
+
+.ui.modal.password-modal form[name="password-confirm"] #confirm-password {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    
 }
 
 .-big {
