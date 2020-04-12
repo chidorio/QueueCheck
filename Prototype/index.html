@@ -38,8 +38,15 @@
               <div>59069420</div>
             </div>
             <div class="button-group">
-              <button class="ui button edit-button" onclick="goToProfile()"><i class="far fa-edit"></i>แก้ไขข้อมูล</button>
-              <button class="ui button orange add-button" onclick="onAddSubject()"><i class="fas fa-plus"></i>เพิ่มวิชา</button>
+              <a>
+                <button class="ui button edit-button" onclick="goToProfile()"><i class="far fa-edit"></i>แก้ไขข้อมูล</button>
+              </a>
+              <a href="addSubject.html">
+                <button class="ui button orange add-button"><i class="fas fa-plus"></i>เพิ่มวิชา</button>
+              </a>
+              
+                <!-- <button class="ui button edit-button" onclick="goToProfile()"><i class="far fa-edit"></i>แก้ไขข้อมูล</button> -->
+                <!-- <button class="ui button orange add-button" onclick="onAddSubject()"><i class="fas fa-plus"></i>เพิ่มวิชา</button> -->
             </div>
           </div>
 
@@ -156,13 +163,17 @@
               $successModal = $('#success-modal');
               $passwordModal = $('#password-modal');
 
+        $passwordModal.modal({
+          allowMultiple: false
+        })
+
         // $successModal.modal('attach events', '.ui.tiny.modal.delete-modal #confirm-delete');
         $successModal.modal('attach events', '.ui.tiny.modal.add-modal .confirm-button');
-        $successModal.modal('attach events', '.ui.tiny.modal.password-modal #confirm-password')
+        $successModal.modal('attach events', '#confirm-password')
 
         $passwordModal.modal('attach events', '.ui.tiny.modal.delete-modal #confirm-delete');
 
-        $deleteModal.modal('setting', 'transition', 'vertical flip');
+        $deleteModal.modal('setting', 'transition', 'fade up');
       })
 
       onDeleteSubject = () => {
@@ -175,7 +186,7 @@
         const $successModal = $('.ui.mini.modal.success-modal');
 
         $addModal.modal({
-          // allowMultiple: true
+          allowMultiple: true
         });
 
         $addModal.modal('setting', 'transition', 'vertical flip').modal('show');

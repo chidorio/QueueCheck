@@ -55,12 +55,18 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
+    margin-right: 1rem;
+}
+
+.profile-content a {
+    width: 100%;
 }
 
 .profile-content>.button-group button {
     font-family: 'Kanit', Arial, Helvetica, sans-serif;
     font-size: 1rem;
     width: 100%;
+    
     /* max-width: 150px; */
     padding: 0.5rem;
     margin: 2.5px 5px;
@@ -321,7 +327,7 @@
         align-items: flex-end;
     }
 
-    .profile-content>.button-group button {
+    .profile-content>.button-group a {
         width: 49%;
     }
 }
