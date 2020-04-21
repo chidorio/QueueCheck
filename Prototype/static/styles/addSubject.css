@@ -1,0 +1,92 @@
+h2.header-text {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+}
+
+form[name="subject-search"] {
+    text-align: center;
+}
+
+form[name="subject-search"] .ui.input {
+    width: 100%;
+}
+
+form[name="confirm-subject"] .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+form[name="confirm-subject"] .info .header {
+    width: 30%;
+}
+
+form[name="confirm-subject"] .info .detail {
+    margin-right: auto;
+}
+
+.subject-container {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    /* background-color: red; */
+}
+
+.subject-container>.header {
+    display: flex;
+    padding: 10px;
+    font-size: 1.15rem;
+}
+
+.subject-container>.header .subject-id {
+    width: 30%;
+}
+
+.subject-container>.header .subject-name {
+    margin-right: auto;
+}
+
+.subject-container>.content {
+    padding: 10px;
+}
+
+.subject-container>.content .section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.-green {
+    color: #9ad100;
+}
+
+.confirm-button {
+    background-color: #9ad100;
+    color: white;
+}
+
+.ui.modal.confirm-modal>.content,
+.ui.modal.confirm-modal>.button-group {
+    border: none;
+    text-align: center;
+}
+
+.ui.modal.confirm-modal>.content {
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+.ui.modal.confirm-modal>.button-group {
+    padding: 1rem;
+}
+
+.ui.modal.confirm-modal>.button-group button {
+    font-family: 'Kanit' !important;
+}
+
+.ui.modal.confirm-modal>.content>.subject-name {
+    font-weight: bold;
+}
+
+.ui.modals.confirm-modal>.actions {
+    justify-content: center;
+}
