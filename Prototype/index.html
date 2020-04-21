@@ -8,12 +8,12 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
-    <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/theme.css" />
+    <link rel="stylesheet" href="static/styles/index.css" />
+    <link rel="stylesheet" href="static/styles/theme.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>Welcome</title>
-    <link rel="icon" href="./pics/kmitl_logo.png" />
+    <link rel="icon" href="static/pics/kmitl_logo.png" />
   </head>
 
   <body>
@@ -23,7 +23,9 @@
           <a href="./index.html"><b>KMITL</b></a>
         </div>
         <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-        <div class="header-item -right">Welcome</div>
+        <div class="header-item -right">
+          <a href="login.html" style="color: white; font-size: 1.25em;">ออกจากระบบ</a>
+        </div>
         <!-- </div> -->
       </div>
     </nav>
@@ -31,7 +33,7 @@
     <div class="content-wrapper" id="content-wrapper">
       <div class="ui container main-container">
         <div class="profile-container">
-          <div style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg')" class="image-container"></div>
+          <div style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg');" class="image-container"></div>
           <div class="profile-content">
             <div class="user-detail">
               <div><h2 id="std_name">นายดีโอ บรันโด</h2></div>
@@ -39,14 +41,14 @@
             </div>
             <div class="button-group">
               <a>
-                <button class="ui button edit-button" onclick="goToProfile()"><i class="far fa-edit"></i>แก้ไขข้อมูล</button>
+                <button class="ui button edit-button" onclick="goToProfile()"><i class="far fa-user"></i>ดูข้อมูลส่วนตัว</button>
               </a>
               <a href="addSubject.html">
                 <button class="ui button orange add-button"><i class="fas fa-plus"></i>เพิ่มวิชา</button>
               </a>
-              
-                <!-- <button class="ui button edit-button" onclick="goToProfile()"><i class="far fa-edit"></i>แก้ไขข้อมูล</button> -->
-                <!-- <button class="ui button orange add-button" onclick="onAddSubject()"><i class="fas fa-plus"></i>เพิ่มวิชา</button> -->
+
+              <!-- <button class="ui button edit-button" onclick="goToProfile()"><i class="far fa-edit"></i>แก้ไขข้อมูล</button> -->
+              <!-- <button class="ui button orange add-button" onclick="onAddSubject()"><i class="fas fa-plus"></i>เพิ่มวิชา</button> -->
             </div>
           </div>
 
@@ -148,11 +150,10 @@
       </div>
       <div class="content">
         <form name="password-confirm" method="POST">
-        
           <div class="ui input">
-            <input type="password" name="password"/>
+            <input type="password" name="password" />
           </div>
-          <button class="ui button red" id="confirm-password" onclick="event.preventDefault()"> ยืนยัน</button>
+          <button class="ui button red" id="confirm-password" onclick="event.preventDefault()">ยืนยัน</button>
         </form>
       </div>
     </div>
@@ -160,21 +161,21 @@
     <script>
       $(document).ready(() => {
         const $deleteModal = $('#delete-modal');
-              $successModal = $('#success-modal');
-              $passwordModal = $('#password-modal');
+        $successModal = $('#success-modal');
+        $passwordModal = $('#password-modal');
 
         $passwordModal.modal({
-          allowMultiple: false
-        })
+          allowMultiple: false,
+        });
 
         // $successModal.modal('attach events', '.ui.tiny.modal.delete-modal #confirm-delete');
         $successModal.modal('attach events', '.ui.tiny.modal.add-modal .confirm-button');
-        $successModal.modal('attach events', '#confirm-password')
+        $successModal.modal('attach events', '#confirm-password');
 
         $passwordModal.modal('attach events', '.ui.tiny.modal.delete-modal #confirm-delete');
 
         $deleteModal.modal('setting', 'transition', 'fade up');
-      })
+      });
 
       onDeleteSubject = () => {
         const $deleteModal = $('#delete-modal');
@@ -186,13 +187,13 @@
         const $successModal = $('.ui.mini.modal.success-modal');
 
         $addModal.modal({
-          allowMultiple: true
+          allowMultiple: true,
         });
 
         $addModal.modal('setting', 'transition', 'vertical flip').modal('show');
       };
 
-      goTheFuckBack = modal => {
+      goTheFuckBack = (modal) => {
         const $addModal = $('.ui.tiny.modal.add-modal');
         modal.modal('hide');
       };

@@ -8,12 +8,12 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
-    <link rel="stylesheet" href="./styles/profile.css" />
-    <link rel="stylesheet" href="./styles/theme.css" />
+    <link rel="stylesheet" href="static/styles/profile.css" />
+    <link rel="stylesheet" href="static/styles/theme.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>Profile</title>
-    <link rel="icon" href="./pics/kmitl_logo.png" />
+    <link rel="icon" href="static/pics/kmitl_logo.png" />
   </head>
 
   <body>
@@ -23,7 +23,9 @@
           <a href="./index.html"><b>KMITL</b></a>
         </div>
         <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-        <div class="header-item -right">Welcome</div>
+        <div class="header-item -right">
+          <a href="login.html" style="color: white; font-size: 1.25em;">ออกจากระบบ</a>
+        </div>
         <!-- </div> -->
       </div>
     </nav>
@@ -32,7 +34,7 @@
       <div class="main-container ui container">
         <div class="profile-container">
           <div class="profile-image">
-            <div class="image" style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg')"></div>
+            <div class="image" style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg');"></div>
           </div>
 
           <div class="profile-detail">
@@ -57,11 +59,11 @@
               </div>
               <div class="content">
                 <div class="title">Line</div>
-                <div class="data">ไม่บอกโว้ย</div>
+                <div class="data">-</div>
               </div>
               <div class="content" id="user-notification">
                 <div class="title">ช่องทางการแจ้งเตือน</div>
-                <div class="data">ไม่เอา</div>
+                <div class="data">-</div>
               </div>
             </form>
 

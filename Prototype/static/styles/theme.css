@@ -3,6 +3,10 @@ body {
     font-family: "Kanit", sans-serif !important;
 }
 
+a {
+    font-family: "Kanit", sans-serif !important;
+}
+
 #navbar {
     height: 50px;
     background-color: #ff8000;
@@ -55,8 +59,8 @@ body {
 
 .login-form .login-field>.ui.input.focus>input,
 .ui.input>input:focus {
-        border-color: #ff8000;
-    }
+    border-color: #ff8000;
+}
 
 @media only screen and (max-width: 699px) {
     body {
