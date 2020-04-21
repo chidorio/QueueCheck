@@ -1,0 +1,343 @@
+.ui.container.main-container {
+    width: auto !important;
+    max-width: 1080px !important;
+}
+
+.main-container>.profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    border-bottom: 1px solid #d9d9d9;
+    /* padding: 0.3rem 0.75rem; */
+    padding: 0.75rem 0;
+}
+
+.profile-container>.image-container {
+    width: 100px;
+    height: 100px;
+    margin-right: 1.25rem;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.profile-container>.profile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 2;
+}
+
+.profile-content>.user-detail {
+    /* align-self: center; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    flex-grow: 2;
+
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.25rem;
+}
+
+.profile-content>.user-detail>div {
+    margin-bottom: 10px;
+}
+
+#std_name {
+    font-family: 'Kanit', sans-serif;
+}
+
+.profile-content>.button-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.profile-content a {
+    width: 100%;
+}
+
+.profile-content>.button-group button {
+    font-family: 'Kanit', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    
+    /* max-width: 150px; */
+    padding: 0.5rem;
+    margin: 2.5px 5px;
+}
+
+.profile-content>.button-group button i {
+    margin-right: 5px;
+}
+
+.main-container>.subject-container {
+    /* border: 1px solid black; */
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subject-container>.column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.subject-container .subject {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    border: 1px solid #bfbfbf;
+    border-radius: 10px 10px;
+    margin-bottom: 1rem;
+}
+
+.subject-container .subject>.header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.subject>.header>.subject-name {
+    margin-left: 0.5rem;
+    width: 65%;
+}
+
+.subject>.header>.delete-icon {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.subject>.queue {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.subject>.queue>.queue-number,
+.subject>.queue>.remaining-queue {
+    background-color: #dedede;
+    margin-top: 0.5rem;
+    padding: 5px;
+    border-radius: 10px;
+    height: 4rem;
+    width: 49%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subject>.queue>.remaining-queue {
+    background-color: #ffe600;
+}
+
+.subject>.queue>.subjectname {
+    margin-top: 1rem;
+    font-family: 'Kanit', sans-serif;
+}
+
+.subject>.queue>.queue-number {
+    /* margin-top: auto; */
+}
+
+.ui.modal.delete-modal>.content,
+.ui.modal.delete-modal>.button-group {
+    border: none;
+    text-align: center;
+}
+
+.ui.modal.delete-modal>.content {
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+.ui.modal.delete-modal>.button-group {
+    padding: 1rem;
+}
+
+.ui.modal.delete-modal>.button-group button {
+    font-family: 'Kanit' !important;
+}
+
+.ui.modal.delete-modal>.content>.subject-name {
+    font-weight: bold;
+}
+
+.ui.modals.delete-modal>.actions {
+    justify-content: center;
+}
+
+.ui.modals>.add-modal,
+.ui.modal.add-modal>.header {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    border: none;
+}
+
+.ui.modal.add-modal>.header {
+    padding-bottom: 0.5rem;
+}
+
+.ui.modal.add-modal>.content {
+    display: flex;
+    flex-direction: column;
+
+    /* height: 300px; */
+    text-align: center;
+}
+
+.ui.modal.add-modal>.content>.description {
+    margin-bottom: 1.5rem;
+}
+
+.ui.modal.add-modal {
+    margin-top: 10px;
+}
+
+.ui.modal.add-modal .button-group {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 1.5rem;
+}
+
+.ui.modal.add-modal .button-group * {
+    height: 3rem;
+    width: 45%;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ui.modal.add-modal .button-group>.confirm-button {
+    background-color: #9ad100;
+    color: white;
+}
+
+.ui.modal.add-modal .button-group>.back-button {
+    background-color: #dedede;
+
+}
+
+.ui.modal.success-modal>.header {
+    text-align: center;
+    border: none;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ui.modal.success-modal>.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ui.modal.success-modal>.content .success-icon {
+    height: 100px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    padding: 11px;
+}
+
+.ui.modal.success-modal>.content .check-icon {
+    font-size: 5rem;
+    color: #9ad100;
+}
+
+.ui.modal.success-modal>.button-group {
+    margin-top: 10px;
+}
+
+.ui.modals>.password-modal,
+.ui.modal.password-modal>.header {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    border: none;
+}
+
+.ui.modal.password-modal>.header {
+    padding-bottom: 0.5rem;
+}
+
+.ui.modal.password-modal form[name="password-confirm"] {
+    /* background-color: green; */
+}
+
+.ui.modal.password-modal form[name="password-confirm"] #confirm-password {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    
+}
+
+.-big {
+    font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 700px) {
+    #navbar>.navbar-brand {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    .main-container>.profile-container {
+        padding: 0.75rem;
+        /* margin: 0 100px; */
+    }
+
+    .profile-container>.profile-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .subject-container>.subject {
+        width: 50%;
+    }
+
+    .subject-container>.column {
+        width: 49%;
+    }
+
+    .main-container>.subject-container {
+        flex-direction: row;
+        align-items: unset;
+        padding: 0.75rem;
+    }
+
+    .subject>.queue>.queue-number,
+    .subject>.queue>.remaining-queue {
+        flex-direction: row;
+        height: 2.5rem;
+        width: 100%;
+        padding: 0 0.5rem;
+        justify-content: space-between;
+    }
+
+    .subject-container .subject>.queue {
+        flex-direction: column;
+    }
+
+    .profile-content>.button-group {
+        flex-grow: 2;
+        align-items: flex-end;
+    }
+
+    .profile-content>.button-group a {
+        width: 49%;
+    }
+}
