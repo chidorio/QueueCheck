@@ -1,91 +1,93 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
 
-        <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
-        <link rel="stylesheet" href="./styles/profile.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <title>Profile</title>
-        <link rel="icon" href="./pics/kmitl_logo.png"
-    </head>
+    <link rel="stylesheet" href="/static/styles/profile.css" />
+    <link rel="stylesheet" href="/static/styles/theme.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Profile</title>
+    <link rel="icon" href="/static/pics/kmitl_logo.png" />
+  </head>
 
-    <body>
-        <nav id="navbar" class="ui secondary pointing menu">
-            <div class="navbar-brand header-item">
-              <a href="./index.html">KMITL</a>
-            </div>
-            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-              <div class="header-item -right"> Welcome </div>
-            <!-- </div> -->
-        </nav>
+  <body>
+    <nav id="navbar" class="ui secondary pointing menu">
+      <div id="navbar-inner">
+        <div class="navbar-brand header-item">
+          <a href="./index.html"><b>KMITL</b></a>
+        </div>
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+        <div class="header-item -right">
+          <a href="login.html" style="color: white; font-size: 1.25em;">ออกจากระบบ</a>
+        </div>
+        <!-- </div> -->
+      </div>
+    </nav>
 
-        <div id="content-wrapper">
-            
+    <div id="content-wrapper">
+      <div class="main-container ui container">
+        <div class="profile-container">
+          <div class="profile-image">
+            <div class="image" style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg');"></div>
+          </div>
 
-          <div class="main-container ui container">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <div class="image" style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg')">
-                        
-                    </div>
-                </div>
-    
-                <div class="profile-detail">
-                    <form name="edit-profile">
-                        <div class="content">
-                            <div class="title">ชื่อ</div><div class="data">นายดีโอ บรันโด</div>
-                        </div>
-                        <div class="content">
-                            <div class="title">รหัสนักศึกษา</div><div class="data">59069420</div>
-                        </div>
-                        <div class="content">
-                            <div class="title">อีเมล์</div><div class="data email-data">chidorigen@gmail.com</div>
-                            <input type="hidden" name="email" value=""/>
-                        </div>
-                        <div class="content">
-                            <div class="title">เบอรโทรศัพท์</div><div class="data phone-data">0801234567</div>
-                            <input type="hidden" name="phone_number" value=""/>
-                        </div>
-                        <div class="content">
-                            <div class="title">Line</div><div class="data">ไม่บอกโว้ย</div>
-                        </div>
-                        <div class="content" id="user-notification">
-                            <div class="title">ช่องทางการแจ้งเตือน</div><div class="data">ไม่เอา</div>
-                        </div>
-                    </form>
+          <div class="profile-detail">
+            <form name="edit-profile">
+              <div class="content">
+                <div class="title">ชื่อ</div>
+                <div class="data">นายดีโอ บรันโด</div>
+              </div>
+              <div class="content">
+                <div class="title">รหัสนักศึกษา</div>
+                <div class="data">59069420</div>
+              </div>
+              <div class="content">
+                <div class="title">อีเมล์</div>
+                <div class="data email-data">chidorigen@gmail.com</div>
+                <input type="hidden" name="email" value="" />
+              </div>
+              <div class="content">
+                <div class="title">เบอรโทรศัพท์</div>
+                <div class="data phone-data">0801234567</div>
+                <input type="hidden" name="phone_number" value="" />
+              </div>
+              <div class="content">
+                <div class="title">Line</div>
+                <div class="data">-</div>
+              </div>
+              <div class="content" id="user-notification">
+                <div class="title">ช่องทางการแจ้งเตือน</div>
+                <div class="data">-</div>
+              </div>
+            </form>
 
-                    <div class="button-group">
-                        <button class="ui button" onclick="goToEditProfile()">
-                            <i class="far fa-edit"></i> แก้ไขข้อมูล
-                        </button>
-                    </div>
-                </div>
+            <div class="button-group">
+              <button class="ui button edit-button" onclick="goToEditProfile()"><i class="far fa-edit"></i> แก้ไขข้อมูล</button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <script>
-            goToEditProfile = () => {
-                window.location.href = './editProfile.html'
-            }
+    <script>
+      goToEditProfile = () => {
+        window.location.href = './editProfile.html';
+      };
 
-            setFormValue = () => {
-                const editForm = document.forms['edit-profile']
-                editForm.email.value = document.querySelector('form[name="edit-profile"] .email-data').textContent
-                editForm.phone_number.value = document.querySelector('form[name="edit-profile"] .phone-data').textContent
+      setFormValue = () => {
+        const editForm = document.forms['edit-profile'];
+        editForm.email.value = document.querySelector('form[name="edit-profile"] .email-data').textContent;
+        editForm.phone_number.value = document.querySelector('form[name="edit-profile"] .phone-data').textContent;
 
-                console.log(document.querySelector('input[name="email"]').value, 'email')
-                console.log(document.querySelector('input[name="phone_number"]').value, 'phone number')
-            }
-        </script>
-    </body>
+        console.log(document.querySelector('input[name="email"]').value, 'email');
+        console.log(document.querySelector('input[name="phone_number"]').value, 'phone number');
+      };
+    </script>
+  </body>
 </html>

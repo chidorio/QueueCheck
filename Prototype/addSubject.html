@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    
+        <link rel="stylesheet" href="/static/styles/addSubject.css" />
+        <link rel="stylesheet" href="/static/styles/theme.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
+        <title>KMITL</title>
+        <link rel="icon" href="/static/pics/kmitl_logo.png" />
+      </head>
+
+      <body>
+        <nav id="navbar" class="ui secondary pointing menu">
+          <div id="navbar-inner">
+            <div class="navbar-brand header-item">
+              <a href="./index.html"><b>KMITL</b></a>
+            </div>
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+            <div class="header-item -right">Welcome</div>
+            <!-- </div> -->
+          </div>
+        </nav>
+
+        <div class="content-wrapper">
+          <div class="ui container main-container">
+            <h2 class="header-text">เพิ่มคิวในรายวิชา</h2>
+            <form name="subject-search" method="GET">
+              <div class="ui input">
+                <input type="text" name="subject_id"/>
+              </div>
+            </form>
+            <div class="subject-container">
+              <div class="header">
+                <span class="subject-id">90593005</span> <span class="subject-name">Innovation Unboxed</span>
+              </div>
+              <div class="content">
+                <form name="confirm-subject" method="POST">
+                  <div class="info">
+                    <div class="header"><label for="section">Section</label></div>
+                    <div class="detail">
+                      <select class="ui dropdown" name="section" id="sections">
+                        <option value="69">69</option>
+                        <option value="6969">6969</option>
+                        <option value="696969">696969</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <div class="header">เวลาเรียน</div>
+                    <div class="detail">จ. 16:30-19:30 น.</div>
+                  </div>
+                  <div class="info">
+                    <div class="header">สถานที่</div>
+                    <div class="detail">ตึกพระเทพฯ D-109</div>
+                  </div>
+                  <div class="ui accordion" id="more-info">
+                    <div class="title">
+                      More info <i class="dropdown icon"></i>
+                    </div>
+                    <div class="content">
+                      <div class="info">
+                        <div class="header">ผู้สอน</div>
+                        <div class="detail">ดร.ญาดา อรรถอนันต์</div>
+                      </div>
+                      <div class="info">
+                        <div class="header">จำนวน นศ.</div>
+                        <div class="detail">90 (ลงทะเบียน <span class="-green">69</span> คน)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui modal tiny confirm-modal" id="confirm-modal">
+                    <div class="content">ต้องการยกเลิกการจองในรายวิชา <span class="subject-name">Special Topics in Information Technology - Image Transformation and Recognition</span> ใช่หรือไม่</div>
+                    <div class="button-group">
+                      <button class="ui button">ไม่</button>
+                      <button class="ui button red" id="confirm-subject">ใช่</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              
+            </div>
+            <button class="ui button confirm-button trigger-button" id="trigger-button">ยืนยัน</button>
+          </div>
+        </div>
+
+        
+
+        <script>
+          $(document).ready(() => {
+            $('.ui.dropdown#sections').dropdown()
+            $('.ui.accordion#more-info').accordion()
+            $('.ui.modal#confirm-modal').modal()
+          })
+
+          $('#trigger-button').on('click', () => {
+            $('.ui.modal#confirm-modal').modal('show')
+            console.log('ควย')
+          })
+        </script>
+          
+      </body>
+</html>

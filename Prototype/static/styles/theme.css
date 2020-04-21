@@ -1,0 +1,69 @@
+body {
+    font-size: 1.25em;
+    font-family: "Kanit", sans-serif !important;
+}
+
+a {
+    font-family: "Kanit", sans-serif !important;
+}
+
+#navbar {
+    height: 50px;
+    background-color: #ff8000;
+    min-width: 320px;
+}
+
+#navbar-inner {
+    max-width: 1075px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 0 0.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#navbar-inner>.navbar-brand {
+    font-size: 1.5rem;
+    /* margin-left: 10px; */
+}
+
+#navbar-inner>.navbar-brand>a {
+    color: #f8f8f8;
+}
+
+#navbar-inner>.navbar-brand>a:hover {
+    color: #d8d8d8;
+}
+
+#navbar-inner>.header-item {
+    align-self: center;
+    width: 100%
+}
+
+#navbar-inner>.header-item.-right {
+    text-align: right;
+    /* margin-right: 10px; */
+    display: block;
+    color: #f8f8f8;
+}
+
+#content-wrapper {
+    overflow-x: hidden;
+}
+
+#success-modal {
+    max-width: 300px;
+}
+
+.login-form .login-field>.ui.input.focus>input,
+.ui.input>input:focus {
+    border-color: #ff8000;
+}
+
+@media only screen and (max-width: 699px) {
+    body {
+        font-size: 1em;
+    }
+}

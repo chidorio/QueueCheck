@@ -1,0 +1,147 @@
+.main-container,
+input,
+.ui.button,
+.header {
+    font-family: "Kanit", sans-serif !important;
+}
+
+.ui.container {
+    max-width: 1080px !important;
+}
+
+.main-container>.profile-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container>.profile-image,
+.profile-container>.profile-detail {
+    padding: 1.5rem 0;
+    align-self: center;
+}
+
+.profile-container>.profile-image>.image {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.profile-container>.profile-detail {
+    /* background-color: red; */
+    width: 100%;
+}
+
+.profile-container>.profile-detail .content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.profile-container>.profile-detail .title {
+    width: 50%;
+}
+
+.profile-container>.profile-detail .data {
+    margin-right: auto;
+}
+
+form[name="edit-profile"] input[type="text"] {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+form[name="edit-profile"]>.notification-settings>.settings {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container>.profile-detail .button-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.profile-container>.profile-detail .button-group * {
+    font-family: 'Kanit';
+    margin-bottom: 5px;
+}
+
+.profile-detail .button-group .confirm-button {
+    background-color: #9ad100;
+    color: #f8f8f8;
+}
+
+.ui.modal.success-modal>.header,
+.ui.modal.success-modal>.content * {
+    font-family: 'Kanit';
+}
+
+.ui.modal.success-modal>.header {
+    text-align: center;
+    border: none;
+}
+
+.ui.modal.success-modal>.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ui.modal.success-modal>.content .success-icon {
+    height: 100px;
+    width: 100px;
+    background-color: #dedede;
+    border: 3px solid black;
+    border-radius: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.checkbox-label {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    margin: auto 0.25rem auto 0;
+    width: 15px;
+    height: 15px;
+}
+
+@media only screen and (min-width: 700px) {
+    .profile-container>.profile-image {
+        /* margin-left: 15%; */
+        align-self: unset;
+    }
+
+    .profile-container>.profile-image>.image {
+        height: 225px;
+        width: 225px;
+    }
+
+    .profile-container>.profile-detail {
+        /* margin-left: 4rem; */
+        width: 75%;
+    }
+
+    .main-container>.profile-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .profile-container>.profile-detail .button-group {
+        flex-direction: row;
+    }
+
+    input[type='checkbox'],
+    input[type='radio'] {
+        width: 20px;
+        height: 20px;
+    }
+}

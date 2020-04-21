@@ -1,124 +1,136 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
 
-        <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
-        <link rel="stylesheet" href="./styles/editProfile.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <title>Profile</title>
-        <link rel="icon" href="./pics/kmitl_logo.png"
-    </head>
+    <link rel="stylesheet" href="/static/styles/editProfile.css" />
+    <link rel="stylesheet" href="/static/styles/theme.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Profile</title>
+    <link rel="icon" href="/static/pics/kmitl_logo.png" />
+  </head>
 
-    <body>
-        <nav id="navbar" class="ui secondary pointing menu">
-            <div class="navbar-brand header-item">
-              <a href="./index.html">KMITL</a>
-            </div>
-            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-              <div class="header-item -right"> Welcome </div>
-            <!-- </div> -->
-        </nav>
+  <body>
+    <nav id="navbar" class="ui secondary pointing menu">
+      <div id="navbar-inner">
+        <div class="navbar-brand header-item">
+          <a href="./index.html"><b>KMITL</b></a>
+        </div>
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+        <div class="header-item -right">
+          <a href="login.html" style="color: white; font-size: 1.25em;">ออกจากระบบ</a>
+        </div>
+        <!-- </div> -->
+      </div>
+    </nav>
 
-        <div id="content-wrapper">
-            
+    <div id="content-wrapper">
+      <div class="main-container ui container">
+        <div class="profile-container">
+          <div class="profile-image">
+            <div class="image" style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg');"></div>
+          </div>
 
-          <div class="main-container ui container">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <div class="image" style="background-image: url('https://i1.sndcdn.com/avatars-000675191216-k6khz8-t500x500.jpg')">  
-                    </div>
-                </div>
-    
-                <div class="profile-detail">
-                    <form name="edit-profile" method="POST">
-                        <div class="content">
-                            <div class="title">ชื่อ</div><div class="data">นายดีโอ บรันโด</div>
-                        </div>
-                        <div class="content">
-                            <div class="title">รหัสนักศึกษา</div><div class="data">59069420</div>
-                        </div>
-                        <div class="content">
-                            <div class="title">อีเมล์</div>
-                            <div class="data email-data"><input type="text" name="email" value="chidorigen@gmail.com"></div>
-                        </div>
-                        <div class="content">
-                            <div class="title">เบอรโทรศัพท์</div>
-                            <div class="data phone-data"><input type="text" name="phone_number" value="0812345678"></div>
-                        </div>
-                        <div class="content">
-                            <div class="title">Line</div><div class="data">ไม่บอกโว้ย</div>
-                        </div>
-    
-                        <div class="content notification-settings" id="notification-settings">
-                            <div class="title">เลือกรับช่องทางการแจ้งเตือน</div>
-                            <div class="settings data">
-                                <label>Line</label>
-                                <input type="checkbox" name="notification" value="line"/>
-                                <label>E-mail</label>
-                                <input type="checkbox" name="notification" value="email"/>
-                            </div>
-                        </div>
-    
-                        <div class="button-group">
-                            <button class="ui button confirm-button" id="confirm-button">
-                                <!-- <i class="far fa-edit"></i>  -->
-                                ยืนยัน
-                            </button>
-                            <button class="ui button" id="back-button" onclick="e.preventDefault;goTheFuckBack()">ย้อนกลับ</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+          <div class="profile-detail">
+            <form name="edit-profile" method="POST">
+              <div class="content">
+                <div class="title">ชื่อ</div>
+                <div class="data">นายดีโอ บรันโด</div>
+              </div>
+              <div class="content">
+                <div class="title">รหัสนักศึกษา</div>
+                <div class="data">59069420</div>
+              </div>
+              <div class="content">
+                <div class="title">อีเมล์</div>
+                <div class="data email-data"><input type="text" name="email" value="chidorigen@gmail.com" /></div>
+              </div>
+              <div class="content">
+                <div class="title">เบอรโทรศัพท์</div>
+                <div class="data phone-data"><input type="text" name="phone_number" value="0812345678" /></div>
+              </div>
+              <div class="content">
+                <div class="title">Line</div>
+                <div class="data">-</div>
+              </div>
 
-            <div class="ui modal tiny confirm-modal">
-                <div class="header">
-                    คาแรคเตอร์ สคริปต์ มั้ง ฮอตดอกแป๋ว วัคค์รีดไถผิดพลาด แมคเคอเรล วาทกรรมวานิลาสจ๊วตวานิลารายชื่อ
-                    คอร์สอุรังคธาตุ แซ็กโซโฟนคอนเทนเนอร์เย้ว
-                </div>
-                <div class="actions">
-                    <button class="ui button green">ใช่</button>
-                    <button class="ui butotn">ไม่</button>
-                </div>
-            </div>
-
-            <div class="ui modal mini success-modal">
-                <div class="header">เสร็จสิ้น</div>
-                <div class="content">
-                  <div>
-
+              <div class="content notification-settings" id="notification-settings">
+                <div class="title">เลือกรับช่องทางการแจ้งเตือน</div>
+                <div class="settings data">
+                  <div class="checkbox-label">
+                    <input type="checkbox" name="notification" value="line" />
+                    <label>Line</label>
                   </div>
-                  <div class="success-icon">
-                    
+                  <div class="checkbox-label">
+                    <input type="checkbox" name="notification" value="email" />
+                    <label>E-mail</label>
                   </div>
-                  <div class="button-group">
-                    <button class="ui button back-button" onclick="goTheFuckBack($('.ui.modal.success-modal'))"> ย้อนกลับ </button>
-                  </div>
-                  
                 </div>
               </div>
+
+              <div class="button-group">
+                <button class="ui button confirm-button" id="confirm-button">
+                  <!-- <i class="far fa-edit"></i>  -->
+                  ยืนยัน
+                </button>
+                <button class="ui button" id="back-button" onclick="e.preventDefault;goTheFuckBack()">ย้อนกลับ</button>
+              </div>
+            </form>
           </div>
         </div>
 
-        <script>
-            $('#back-button').click((event) => {
-                event.preventDefault()
-                window.location.href = './profile.html'
-            })
+        <div class="ui modal tiny confirm-modal" id="confirm-modal">
+          <div class="header">
+            ยืนยันที่จะแก้ไขข้อมูลหรือไม่
+          </div>
+          <div class="actions">
+            <button class="ui button green" id="confirm-editing">ยืนยัน</button>
+            <button class="ui button" id="hide-button">ย้อนกลับ</button>
+          </div>
+        </div>
 
-            $('#confirm-button').click((event) => {
-                event.preventDefault()
-                const $successModal = $('.ui.modal.tiny.confirm-modal')
-                $successModal.modal('show')
-            })
-        </script>
-    </body>
+        <div class="ui modal mini success-modal">
+          <div class="header">เสร็จสิ้น</div>
+          <div class="content">
+            <div></div>
+            <div class="success-icon"></div>
+            <div class="button-group">
+              <button class="ui button back-button" onclick="goTheFuckBack($('.ui.modal.success-modal'))">ย้อนกลับ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(() => {
+        const $confirmModal = $('#confirm-modal').modal();
+        $('#hide-button').click((event) => {
+          $confirmModal.modal('hide')
+        })
+
+        $('#back-button').click((event) => {
+          event.preventDefault()
+          window.location.href = './profile.html'
+        })
+
+      $('#confirm-button').click((event) => {
+          event.preventDefault()
+          const $successModal = $('.ui.modal.tiny.confirm-modal')
+          $successModal.modal('show')
+        })
+
+      $('#confirm-editing').click((event) => {
+          document.forms['edit-profile'].submit()
+        })
+      })
+      
+    </script>
+  </body>
 </html>
