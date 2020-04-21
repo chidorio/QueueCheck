@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>TEST API</h1>
+<br>
+<input type="text" id="input1">
+<button onclick="makeRequest()">TEST</button>
+</body>
+<script>
+    function makeRequest() {
+        var httpRequest = new XMLHttpRequest()
+        httpRequest.onreadystatechange = function () {
+            if(httpRequest.readyState === XMLHttpRequest.DONE){
+                if(httpRequest.status === 200){
+                    var response = JSON.parse(httpRequest.responseText)
+                    {#alert(response.output)#}
+                }else{
+                    alert('ERROR')
+                }
+            }
+        }
+        var username = document.getElementById('input1').value
+        console.log(username)
+        httpRequest.open('POST', '/core/api/')
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        httpRequest.send('username=' +encodeURIComponent(username))
+    }
+</script>
+</html>
