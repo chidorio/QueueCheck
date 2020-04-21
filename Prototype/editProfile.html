@@ -85,13 +85,13 @@
           </div>
         </div>
 
-        <div class="ui modal tiny confirm-modal">
+        <div class="ui modal tiny confirm-modal" id="confirm-modal">
           <div class="header">
             ยืนยันที่จะแก้ไขข้อมูลหรือไม่
           </div>
           <div class="actions">
             <button class="ui button green" id="confirm-editing">ยืนยัน</button>
-            <button class="ui button">ย้อนกลับ</button>
+            <button class="ui button" id="hide-button">ย้อนกลับ</button>
           </div>
         </div>
 
@@ -109,20 +109,28 @@
     </div>
 
     <script>
-      $('#back-button').click((event) => {
-        event.preventDefault();
-        window.location.href = './profile.html';
-      });
+      $(document).ready(() => {
+        const $confirmModal = $('#confirm-modal').modal();
+        $('#hide-button').click((event) => {
+          $confirmModal.modal('hide')
+        })
+
+        $('#back-button').click((event) => {
+          event.preventDefault()
+          window.location.href = './profile.html'
+        })
 
       $('#confirm-button').click((event) => {
-        event.preventDefault();
-        const $successModal = $('.ui.modal.tiny.confirm-modal');
-        $successModal.modal('show');
-      });
+          event.preventDefault()
+          const $successModal = $('.ui.modal.tiny.confirm-modal')
+          $successModal.modal('show')
+        })
 
       $('#confirm-editing').click((event) => {
-        document.forms['edit-profile'].submit()
+          document.forms['edit-profile'].submit()
+        })
       })
+      
     </script>
   </body>
 </html>
