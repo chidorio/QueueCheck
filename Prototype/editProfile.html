@@ -90,7 +90,7 @@
             ยืนยันที่จะแก้ไขข้อมูลหรือไม่
           </div>
           <div class="actions">
-            <button class="ui button green">ยืนยัน</button>
+            <button class="ui button green" id="confirm-editing">ยืนยัน</button>
             <button class="ui button">ย้อนกลับ</button>
           </div>
         </div>
@@ -119,6 +119,10 @@
         const $successModal = $('.ui.modal.tiny.confirm-modal');
         $successModal.modal('show');
       });
+
+      $('#confirm-editing').click((event) => {
+        document.forms['edit-profile'].submit()
+      })
     </script>
   </body>
 </html>
