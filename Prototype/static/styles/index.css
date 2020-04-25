@@ -66,7 +66,7 @@
     font-family: 'Kanit', Arial, Helvetica, sans-serif;
     font-size: 1rem;
     width: 100%;
-    
+
     /* max-width: 150px; */
     padding: 0.5rem;
     margin: 2.5px 5px;
@@ -86,19 +86,21 @@
     align-items: center;
 }
 
-.subject-container>.column {
+/* .subject-container>.column {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
+} */
 
 .subject-container .subject {
     display: flex;
     flex-direction: column;
     padding: 0.75rem;
     border: 1px solid #bfbfbf;
-    border-radius: 10px 10px;
+    border-radius: 10px;
     margin-bottom: 1rem;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .subject-container .subject>.header {
@@ -145,10 +147,6 @@
 .subject>.queue>.subjectname {
     margin-top: 1rem;
     font-family: 'Kanit', sans-serif;
-}
-
-.subject>.queue>.queue-number {
-    /* margin-top: auto; */
 }
 
 .ui.modal.delete-modal>.content,
@@ -274,15 +272,11 @@
     padding-bottom: 0.5rem;
 }
 
-.ui.modal.password-modal form[name="password-confirm"] {
-    /* background-color: green; */
-}
-
 .ui.modal.password-modal form[name="password-confirm"] #confirm-password {
     display: block;
     margin: 0 auto;
     margin-top: 20px;
-    
+
 }
 
 .-big {
@@ -306,12 +300,12 @@
     }
 
     .subject-container>.subject {
-        width: 50%;
-    }
-
-    .subject-container>.column {
         width: 49%;
     }
+
+    /* .subject-container>.column {
+        width: 49%;
+    } */
 
     .main-container>.subject-container {
         flex-direction: row;
@@ -319,7 +313,7 @@
         padding: 0.75rem;
     }
 
-    .subject>.queue>.queue-number,
+    /* .subject>.queue>.queue-number,
     .subject>.queue>.remaining-queue {
         flex-direction: row;
         height: 2.5rem;
@@ -330,7 +324,7 @@
 
     .subject-container .subject>.queue {
         flex-direction: column;
-    }
+    } */
 
     .profile-content>.button-group {
         flex-grow: 2;

@@ -1,3 +1,9 @@
+.ui.container.main-container {
+    width: auto !important;
+    max-width: 1080px !important;
+    padding: 0.75em;
+}
+
 h2.header-text {
     font-family: 'Kanit', sans-serif;
     text-align: center;
@@ -25,29 +31,41 @@ form[name="confirm-subject"] .info .detail {
     margin-right: auto;
 }
 
+.subject-canvas {
+    display: flex;
+}
+
 .subject-container {
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 1px solid #bfbfbf;
+    border-radius: 10px;
     margin-bottom: 10px;
+    width: 49%;
     /* background-color: red; */
 }
 
 .subject-container>.header {
     display: flex;
     padding: 10px;
-    font-size: 1.15rem;
+    /* font-weight: 900; */
 }
 
-.subject-container>.header .subject-id {
+
+.subject-container>.header>.subject-id {
     width: 30%;
 }
 
-.subject-container>.header .subject-name {
-    margin-right: auto;
+.subject-container>.header>.subject-name,
+.subject-container>.header>.subject-id {
+    font-size: 1.15em;
+}
+
+.header>h3 {
+    margin: 0%;
 }
 
 .subject-container>.content {
     padding: 10px;
+    background: oldlace;
 }
 
 .subject-container>.content .section {
@@ -62,6 +80,8 @@ form[name="confirm-subject"] .info .detail {
 .confirm-button {
     background-color: #9ad100;
     color: white;
+    width: 25%;
+    font-family: 'Kanit' !important;
 }
 
 .ui.modal.confirm-modal>.content,
@@ -89,4 +109,18 @@ form[name="confirm-subject"] .info .detail {
 
 .ui.modals.confirm-modal>.actions {
     justify-content: center;
+}
+
+@media screen and (max-width: 699px) {
+    .ui.container.main-container {
+        padding: 0;
+    }
+
+    .subject-container {
+        width: 100%;
+    }
+
+    .confirm-button {
+        width: 50%;
+    }
 }
