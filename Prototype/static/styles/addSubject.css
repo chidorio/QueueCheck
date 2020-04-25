@@ -84,10 +84,22 @@ form[name="confirm-subject"] .info .detail {
     font-family: 'Kanit' !important;
 }
 
+#trigger-button {
+    background-color: #9ad100;
+    color: white;
+}
+
 .ui.modal.confirm-modal>.content,
 .ui.modal.confirm-modal>.button-group {
     border: none;
     text-align: center;
+}
+
+.ui.modal.confirm-modal>.button-group>.confirm-button {
+    background-color: #9ad100;
+    color: white;
+    width: unset;
+    font-family: 'Kanit' !important;
 }
 
 .ui.modal.confirm-modal>.content {

@@ -8,8 +8,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
-    <link rel="stylesheet" href="/static/styles/addSubject.css" />
-    <link rel="stylesheet" href="/static/styles/theme.css" />
+    <link rel="stylesheet" href="./static/styles/addSubject.css" />
+    <link rel="stylesheet" href="./static/styles/theme.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>KMITL</title>
@@ -78,10 +78,10 @@
                   </div>
                 </div>
                 <div class="ui modal tiny confirm-modal" id="confirm-modal">
-                  <div class="content">ต้องการยกเลิกการจองในรายวิชา <span class="subject-name">Special Topics in Information Technology - Image Transformation and Recognition</span> ใช่หรือไม่</div>
+                  <div class="content">ต้องการทำการจองคิวในรายวิชา <span class="subject-name">Special Topics in Information Technology - Image Transformation and Recognition</span> ใช่หรือไม่</div>
                   <div class="button-group">
                     <button class="ui button" id="hide-confirm">ไม่</button>
-                    <button class="ui button red" id="confirm-subject">ใช่</button>
+                    <button class="ui button confirm-button" id="confirm-subject">ใช่</button>
                   </div>
                 </div>
               </form>
@@ -89,7 +89,7 @@
           </div>
         </div>
 
-        <button class="ui button confirm-button trigger-button green" id="trigger-button">ยืนยัน</button>
+        <button class="ui button confirm-button trigger-button" id="trigger-button">ยืนยัน</button>
       </div>
     </div>
 
