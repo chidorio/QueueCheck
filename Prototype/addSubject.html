@@ -80,7 +80,7 @@
                 <div class="ui modal tiny confirm-modal" id="confirm-modal">
                   <div class="content">ต้องการยกเลิกการจองในรายวิชา <span class="subject-name">Special Topics in Information Technology - Image Transformation and Recognition</span> ใช่หรือไม่</div>
                   <div class="button-group">
-                    <button class="ui button">ไม่</button>
+                    <button class="ui button" id="hide-confirm">ไม่</button>
                     <button class="ui button red" id="confirm-subject">ใช่</button>
                   </div>
                 </div>
@@ -98,6 +98,12 @@
         $('.ui.dropdown#sections').dropdown();
         $('.ui.accordion#more-info').accordion();
         $('.ui.modal#confirm-modal').modal();
+
+        const $confirmModal = $('.ui.modal#confirm-modal')
+        
+        $('#hide-confirm').on('click', () => {
+          $confirmModal.modal('hide')
+        })
       });
 
       $('#trigger-button').on('click', () => {
