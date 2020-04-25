@@ -1,8 +1,15 @@
 body {
     font-size: 1.25em;
-    font-family: "Kanit", sans-serif !important;
+    /* font-family: "Kanit", sans-serif !important; */
 }
 
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 a {
     font-family: "Kanit", sans-serif !important;
 }
