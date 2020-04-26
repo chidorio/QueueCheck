@@ -64,6 +64,76 @@ a {
     max-width: 300px;
 }
 
+.ui.modal.progress-modal>.header {
+    text-align: center;
+    border: none;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ui.modal.progress-modal>.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ui.modal.progress-modal>.content .success-icon {
+    height: 100px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    padding: 11px;
+}
+
+.ui.modal.progress-modal>.progress {
+    display: flex
+}
+
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: #b5b5b5;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
+  }
+  
+
 .login-form .login-field>.ui.input.focus>input,
 .ui.input>input:focus {
     border-color: #ff8000;

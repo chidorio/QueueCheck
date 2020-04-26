@@ -90,58 +90,94 @@
       </div>
     </div>
 
+    <div class="ui modal mini progress-modal" id="progress-modal">
+      <div class="header">กำลังดำเนินการ</div>
+      <div class="progress"><div class="lds-facebook"><div></div><div></div><div></div></div></div>
+      <div class="content">
+        <div></div>
+      </div>
+    </div>
+
     <script>
-      const testData = {'subject_id': '0000002', 
-      'subject_name': 'test2', 
-      'midterm': '01-03-2020', 
-      'final': '06-03-2022', 
-      'section': [
-        {'person': 5, 
-        'room': 'xxx xxxx', 
-        'study_day': 'friday 16:30-19:30', 
-        'seat_left': 0, 'section_id': 1, 
-        'teacher': 'EIEI'},
-        {'person': 5, 
-        'room': 'xxx xxxx', 
-        'study_day': 'friday 13:00-16:00', 
-        'seat_left': 0, 'section_id': 2, 
-        'teacher': 'HEHEHEHEHEh'}
-      ]
-      }
+      // const testData = {'subject_id': '0000002', 
+      // 'subject_name': 'test2', 
+      // 'midterm': '01-03-2020', 
+      // 'final': '06-03-2022', 
+      // 'section': [
+      //   {'person': 5, 
+      //   'room': 'xxx xxxx', 
+      //   'study_day': 'friday 16:30-19:30', 
+      //   'seat_left': 0, 'section_id': 1, 
+      //   'teacher': 'EIEI'},
+      //   {'person': 5, 
+      //   'room': 'xxx xxxx', 
+      //   'study_day': 'friday 13:00-16:00', 
+      //   'seat_left': 0, 'section_id': 2, 
+      //   'teacher': 'HEHEHEHEHEh'}
+      // ]
+      // }
+      const testData = {
+        'subject_id': '0000001', 
+        'subject_name': 'test', 
+        'midterm': "'05-03-2020'", 
+        'final': "'05-05-2020", 
+        'section': [
+          {'person': 10, 'room': 'xxx xxxxx', 'study_day': 'monday 09:00-12:00', 'seat_left': 5, 'section_id': 1, 'teacher': 'Yoda'}, 
+          {'person': 10, 'room': 'xxx xxxx', 'study_day': 'wednesday 13:00-16:00', 'seat_left': 10, 'section_id': 2, 'teacher': 'YADA'},
+          {'person': 55, 'room': 'xxx xxxx', 'study_day': 'friday 24:60-26:80', 'seat_left': 15, 'section_id': 3, 'teacher': 'DIO'}
+      ]};
       $(document).ready(() => {
         $('.ui.dropdown#sections').dropdown();
         $('.ui.accordion#more-info').accordion();
         $('.ui.modal#confirm-modal').modal();
+        $('.ui.modal#progress-modal').modal({
+          // dimmerSettings: { opacity: 0 }
+        })
 
-        $('#trigger-button').css({display: 'none'});
+        // $('#trigger-button').css({display: 'inline-block'});
 
         $('#trigger-button').on('click', () => {
           $('.ui.modal#confirm-modal').modal('show');
             console.log('ควย');
         })
 
+        $('#hide-confirm').on('click', () => {
+          const $confirmModal = $('.ui.modal#confirm-modal')
+          $confirmModal.modal('hide')
+        })
+
+
+
         $('form[name="subject-search"]').on('submit', (event) => {
           event.preventDefault();
-          console.log('ควย');
-          $('#subject-display').css({display: 'flex'});
-          $('#trigger-button').css({display: 'unset'});
-          
-          $('#subject-id').text(testData.subject_id);
-          $('#subject-name').text(testData.subject_name);
+          $.ajax({
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            method: 'GET',
+            beforeSend: () => $('#progress-modal').modal('show'),
+            success: () => {
+              $('#progress-modal').modal('hide');
+              $('#subject-display').css({display: 'flex'});
+              $('#trigger-button').css({display: 'unset'});
 
+              $('#subject-id').text(testData.subject_id);
+              $('#subject-name').text(testData.subject_name);
+              (() => {
+                const { section } = testData;
+                options = ''
+                section.forEach(sec => {
+                  options += `<option>${sec.section_id}</option>`;
+                  });
+                  $('#sections').html(options);
+                  defaultSec = { ...section[0] };
+                  console.log(defaultSec)
+                  setSectionValue(defaultSec)
+                  
+              })();
+            }
+          })
+          console.log('ควย');
           //render select tag options
-          (() => {
-            const { section } = testData;
-            options = ''
-            section.forEach(sec => {
-              options += `<option>${sec.section_id}</option>`;
-              });
-              $('#sections').html(options);
-              defaultSec = { ...section[0] };
-              console.log(defaultSec)
-              setSectionValue(defaultSec)
-              
-          })();
+          
         });
 
         $('#sections').on('change', (e) => {

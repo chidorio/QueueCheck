@@ -88,6 +88,7 @@ form[name="confirm-subject"] .info .detail {
 #trigger-button {
     background-color: #9ad100;
     color: white;
+    display: none;
 }
 
 .ui.modal.confirm-modal>.content,
