@@ -32,7 +32,7 @@ form[name="confirm-subject"] .info .detail {
 }
 
 .subject-canvas {
-    display: flex;
+    display: none;
 }
 
 .subject-container {

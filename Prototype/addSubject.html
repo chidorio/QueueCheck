@@ -8,8 +8,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
-    <link rel="stylesheet" href="/static/styles/addSubject.css" />
-    <link rel="stylesheet" href="/static/styles/theme.css" />
+    <link rel="stylesheet" href="./static/styles/addSubject.css" />
+    <link rel="stylesheet" href="./static/styles/theme.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>KMITL</title>
@@ -38,11 +38,11 @@
             <input type="text" name="subject_id" />
           </div>
         </form>
-        <div class="subject-canvas">
+        <div class="subject-canvas" id="subject-display">
           <div class="subject-container">
             <div class="header">
-              <h3 class="subject-id">90593005</h3>
-              <h3 class="subject-name">Innovation Unboxed</h3>
+              <h3 class="subject-id" id="subject-id"></h3>
+              <h3 class="subject-name" id="subject-name"></h3>
             </div>
             <div class="content">
               <form name="confirm-subject" method="POST">
@@ -50,30 +50,27 @@
                   <div class="header"><label for="section">Section</label></div>
                   <div class="detail">
                     <select class="ui dropdown" name="section" id="sections">
-                      <option value="69">69</option>
-                      <option value="6969">6969</option>
-                      <option value="696969">696969</option>
                     </select>
                   </div>
                 </div>
                 <div class="info">
                   <div class="header">เวลาเรียน</div>
-                  <div class="detail">จ. 16:30-19:30 น.</div>
+                  <div class="detail" id="schedule">.</div>
                 </div>
                 <div class="ui accordion" id="more-info">
                   <div class="title">More info <i class="dropdown icon"></i></div>
                   <div class="content">
                     <div class="info">
                       <div class="header">สถานที่</div>
-                      <div class="detail">ตึกพระเทพฯ D-109</div>
+                      <div class="detail" id="study-room">ตึกพระเทพฯ D-109</div>
                     </div>
                     <div class="info">
                       <div class="header">ผู้สอน</div>
-                      <div class="detail">ดร.ญาดา อรรถอนันต์</div>
+                      <div class="detail" id="teacher-name"></div>
                     </div>
                     <div class="info">
                       <div class="header">จำนวน นศ.</div>
-                      <div class="detail">90 (ลงทะเบียน <span class="-green">69</span> คน)</div>
+                      <div class="detail"><span id="all-seat"></span> (ว่าง <span class="-green" id="seat-left"></span> ที่)</div>
                     </div>
                   </div>
                 </div>
@@ -94,22 +91,74 @@
     </div>
 
     <script>
+      const testData = {'subject_id': '0000002', 
+      'subject_name': 'test2', 
+      'midterm': '01-03-2020', 
+      'final': '06-03-2022', 
+      'section': [
+        {'person': 5, 
+        'room': 'xxx xxxx', 
+        'study_day': 'friday 16:30-19:30', 
+        'seat_left': 0, 'section_id': 1, 
+        'teacher': 'EIEI'},
+        {'person': 5, 
+        'room': 'xxx xxxx', 
+        'study_day': 'friday 13:00-16:00', 
+        'seat_left': 0, 'section_id': 2, 
+        'teacher': 'HEHEHEHEHEh'}
+      ]
+      }
       $(document).ready(() => {
         $('.ui.dropdown#sections').dropdown();
         $('.ui.accordion#more-info').accordion();
         $('.ui.modal#confirm-modal').modal();
 
-        const $confirmModal = $('.ui.modal#confirm-modal')
-        
-        $('#hide-confirm').on('click', () => {
-          $confirmModal.modal('hide')
+        $('#trigger-button').css({display: 'none'});
+
+        $('#trigger-button').on('click', () => {
+          $('.ui.modal#confirm-modal').modal('show');
+            console.log('ควย');
         })
+
+        $('form[name="subject-search"]').on('submit', (event) => {
+          event.preventDefault();
+          console.log('ควย');
+          $('#subject-display').css({display: 'flex'});
+          $('#trigger-button').css({display: 'unset'});
+          
+          $('#subject-id').text(testData.subject_id);
+          $('#subject-name').text(testData.subject_name);
+
+          //render select tag options
+          (() => {
+            const { section } = testData;
+            options = ''
+            section.forEach(sec => {
+              options += `<option>${sec.section_id}</option>`;
+              });
+              $('#sections').html(options);
+              defaultSec = { ...section[0] };
+              console.log(defaultSec)
+              setSectionValue(defaultSec)
+              
+          })();
+        });
+
+        $('#sections').on('change', (e) => {
+          const sectionId = e.target.value;
+          const selected = testData.section.find(sec => sec.section_id == sectionId);
+          setSectionValue(selected);
+        });
       });
 
-      $('#trigger-button').on('click', () => {
-        $('.ui.modal#confirm-modal').modal('show');
-        console.log('ควย');
-      });
+      const setSectionValue = (section) => {
+              $('#schedule').html(section.study_day);
+              $('#teacher-name').html(section.teacher);
+              $('#study-room').html(section.room);
+              $('#all-seat').html(section.person);
+              $('#seat-left').html(section.seat_left);
+          }
     </script>
+    
   </body>
 </html>
