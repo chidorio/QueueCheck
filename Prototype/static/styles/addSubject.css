@@ -66,6 +66,7 @@ form[name="confirm-subject"] .info .detail {
 .subject-container>.content {
     padding: 10px;
     background: oldlace;
+    border-radius: 0 0 10px 10px;
 }
 
 .subject-container>.content .section {
