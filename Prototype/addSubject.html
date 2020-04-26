@@ -1,5 +1,5 @@
 <html>
-  <head>
+<head>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet" />
@@ -8,193 +8,387 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
-    <link rel="stylesheet" href="./static/styles/addSubject.css" />
-    <link rel="stylesheet" href="./static/styles/theme.css" />
+    <link rel="stylesheet" href="/static/styles/addSubject.css" />
+    <link rel="stylesheet" href="/static/styles/theme.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>KMITL</title>
     <link rel="icon" href="/static/pics/kmitl_logo.png" />
-  </head>
+</head>
 
-  <body>
-    <nav id="navbar" class="ui secondary pointing menu">
-      <div id="navbar-inner">
+<body>
+<nav id="navbar" class="ui secondary pointing menu">
+    <div id="navbar-inner">
         <div class="navbar-brand header-item">
-          <a href="./index.html"><b>KMITL</b></a>
+            <a href="{% url 'login' %}"><b>KMITL</b></a>
         </div>
         <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
         <div class="header-item -right">
-          <a href="login.html" style="color: white; font-size: 1.25em;">ออกจากระบบ</a>
+            <a href="{% url 'logout' %}" style="color: white; font-size: 1.25em;">ออกจากระบบ</a>
         </div>
         <!-- </div> -->
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    <div class="content-wrapper">
-      <div class="ui container main-container">
+<div class="content-wrapper">
+    <div class="ui container main-container">
         <h2 class="header-text">เพิ่มคิวในรายวิชา</h2>
         <form name="subject-search" method="GET">
-          <div class="ui input">
-            <input type="text" name="subject_id" />
-          </div>
+            <div class="ui input">
+                <input type="text" name="subject_id" />
+            </div>
         </form>
         <div class="subject-canvas" id="subject-display">
-          <div class="subject-container">
-            <div class="header">
-              <h3 class="subject-id" id="subject-id"></h3>
-              <h3 class="subject-name" id="subject-name"></h3>
+            <div class="subject-container">
+                <div class="header">
+                    <h3 class="subject-id" id="subject-id"></h3>
+                    <h3 class="subject-name" id="subject-name"></h3>
+                </div>
+                <div class="content">
+                    <form name="confirm-subject" method="POST" action="{% url "addsubject_control" %}">
+                        {% csrf_token %}
+                        <div class="info">
+                            <div class="header"><label for="section">Section</label></div>
+                            <div class="detail">
+                                <select class="ui dropdown" name="section" id="sections">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="header">เวลาเรียน</div>
+                            <div class="detail" id="schedule">.</div>
+                        </div>
+                        <div class="ui accordion" id="more-info">
+                            <div class="title">More info <i class="dropdown icon"></i></div>
+                            <div class="content">
+                                <div class="info">
+                                    <div class="header">สถานที่</div>
+                                    <div class="detail" id="study-room">ตึกพระเทพฯ D-109</div>
+                                </div>
+                                <div class="info">
+                                    <div class="header">ผู้สอน</div>
+                                    <div class="detail" id="teacher-name"></div>
+                                </div>
+                                <div class="info">
+                                    <div class="header">จำนวน นศ.</div>
+                                    <div class="detail"><span id="all-seat"></span> (ว่าง <span class="-green" id="seat-left"></span> ที่)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui modal tiny confirm-modal" id="confirm-modal">
+                            <div class="content">ต้องการทำการจองคิวในรายวิชา <span class="subject-name">Special Topics in Information Technology - Image Transformation and Recognition</span> ใช่หรือไม่</div>
+                            <div class="button-group">
+                                <button class="ui button" id="hide-confirm">ไม่</button>
+                                <button class="ui button confirm-button" id="confirm-subject">ใช่</button>
+                                <input type="hidden" value="" id="confirm-id"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="content">
-              <form name="confirm-subject" method="POST">
-                <div class="info">
-                  <div class="header"><label for="section">Section</label></div>
-                  <div class="detail">
-                    <select class="ui dropdown" name="section" id="sections">
-                    </select>
-                  </div>
-                </div>
-                <div class="info">
-                  <div class="header">เวลาเรียน</div>
-                  <div class="detail" id="schedule">.</div>
-                </div>
-                <div class="ui accordion" id="more-info">
-                  <div class="title">More info <i class="dropdown icon"></i></div>
-                  <div class="content">
-                    <div class="info">
-                      <div class="header">สถานที่</div>
-                      <div class="detail" id="study-room">ตึกพระเทพฯ D-109</div>
-                    </div>
-                    <div class="info">
-                      <div class="header">ผู้สอน</div>
-                      <div class="detail" id="teacher-name"></div>
-                    </div>
-                    <div class="info">
-                      <div class="header">จำนวน นศ.</div>
-                      <div class="detail"><span id="all-seat"></span> (ว่าง <span class="-green" id="seat-left"></span> ที่)</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ui modal tiny confirm-modal" id="confirm-modal">
-                  <div class="content">ต้องการทำการจองคิวในรายวิชา <span class="subject-name">Special Topics in Information Technology - Image Transformation and Recognition</span> ใช่หรือไม่</div>
-                  <div class="button-group">
-                    <button class="ui button" id="hide-confirm">ไม่</button>
-                    <button class="ui button confirm-button" id="confirm-subject">ใช่</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
         </div>
 
         <button class="ui button confirm-button trigger-button" id="trigger-button">ยืนยัน</button>
-      </div>
     </div>
+</div>
 
-    <div class="ui modal mini progress-modal" id="progress-modal">
-      <div class="header">กำลังดำเนินการ</div>
-      <div class="progress"><div class="lds-facebook"><div></div><div></div><div></div></div></div>
-      <div class="content">
+<div class="ui modal mini progress-modal" id="progress-modal">
+    <div class="header">กำลังดำเนินการ</div>
+    <div class="progress"><div class="lds-facebook"><div></div><div></div><div></div></div></div>
+    <div class="content">
         <div></div>
-      </div>
     </div>
+</div>
 
-    <script>
-      // const testData = {'subject_id': '0000002', 
-      // 'subject_name': 'test2', 
-      // 'midterm': '01-03-2020', 
-      // 'final': '06-03-2022', 
-      // 'section': [
-      //   {'person': 5, 
-      //   'room': 'xxx xxxx', 
-      //   'study_day': 'friday 16:30-19:30', 
-      //   'seat_left': 0, 'section_id': 1, 
-      //   'teacher': 'EIEI'},
-      //   {'person': 5, 
-      //   'room': 'xxx xxxx', 
-      //   'study_day': 'friday 13:00-16:00', 
-      //   'seat_left': 0, 'section_id': 2, 
-      //   'teacher': 'HEHEHEHEHEh'}
-      // ]
-      // }
-      const testData = {
-        'subject_id': '0000001', 
-        'subject_name': 'test', 
-        'midterm': "'05-03-2020'", 
-        'final': "'05-05-2020", 
+<script>
+
+    let subject;
+    const testData = {
+        'subject_id': '0000001',
+        'subject_name': 'test',
+        'midterm': "'05-03-2020'",
+        'final': "'05-05-2020",
         'section': [
-          {'person': 10, 'room': 'xxx xxxxx', 'study_day': 'monday 09:00-12:00', 'seat_left': 5, 'section_id': 1, 'teacher': 'Yoda'}, 
-          {'person': 10, 'room': 'xxx xxxx', 'study_day': 'wednesday 13:00-16:00', 'seat_left': 10, 'section_id': 2, 'teacher': 'YADA'},
-          {'person': 55, 'room': 'xxx xxxx', 'study_day': 'friday 24:60-26:80', 'seat_left': 15, 'section_id': 3, 'teacher': 'DIO'}
-      ]};
-      $(document).ready(() => {
+            {'person': 10, 'room': 'xxx xxxxx', 'study_day': 'monday 09:00-12:00', 'seat_left': 5, 'section_id': 1, 'teacher': 'Yoda'},
+            {'person': 10, 'room': 'xxx xxxx', 'study_day': 'wednesday 13:00-16:00', 'seat_left': 10, 'section_id': 2, 'teacher': 'YADA'},
+            {'person': 55, 'room': 'xxx xxxx', 'study_day': 'friday 24:60-26:80', 'seat_left': 15, 'section_id': 3, 'teacher': 'DIO'}
+        ]};
+    $(document).ready(() => {
         $('.ui.dropdown#sections').dropdown();
         $('.ui.accordion#more-info').accordion();
         $('.ui.modal#confirm-modal').modal();
         $('.ui.modal#progress-modal').modal({
-          // dimmerSettings: { opacity: 0 }
+            // dimmerSettings: { opacity: 0 }
         })
 
         // $('#trigger-button').css({display: 'inline-block'});
 
         $('#trigger-button').on('click', () => {
-          $('.ui.modal#confirm-modal').modal('show');
+            $('.ui.modal#confirm-modal').modal('show');
             console.log('ควย');
         })
 
         $('#hide-confirm').on('click', () => {
-          const $confirmModal = $('.ui.modal#confirm-modal')
-          $confirmModal.modal('hide')
+            const $confirmModal = $('.ui.modal#confirm-modal')
+            $confirmModal.modal('hide')
         })
 
 
 
         $('form[name="subject-search"]').on('submit', (event) => {
-          event.preventDefault();
-          $.ajax({
-            url: 'https://jsonplaceholder.typicode.com/posts',
-            method: 'GET',
-            beforeSend: () => $('#progress-modal').modal('show'),
-            success: () => {
-              $('#progress-modal').modal('hide');
-              $('#subject-display').css({display: 'flex'});
-              $('#trigger-button').css({display: 'unset'});
+            event.preventDefault();
+            $.ajax({
+                {#url: 'https://jsonplaceholder.typicode.com/posts',#}
+                url: `/core/apiaddsubject?subject_id=${event.target[0].value}`,
+                method: 'GET',
+                beforeSend: () => $('#progress-modal').modal('show'),
+                success: (data) => {
+                    subject = data;
+                    document.querySelector('#confirm-id').value = subject.subject_id;
+                    console.log(data);
+                    $('#progress-modal').modal('hide');
+                    $('#subject-display').css({display: 'flex'});
+                    $('#trigger-button').css({display: 'unset'});
 
-              $('#subject-id').text(testData.subject_id);
-              $('#subject-name').text(testData.subject_name);
-              (() => {
-                const { section } = testData;
-                options = ''
-                section.forEach(sec => {
-                  options += `<option>${sec.section_id}</option>`;
-                  });
-                  $('#sections').html(options);
-                  defaultSec = { ...section[0] };
-                  console.log(defaultSec)
-                  setSectionValue(defaultSec)
-                  
-              })();
-            }
-          })
-          console.log('ควย');
-          //render select tag options
-          
+                    $('#subject-id').text(subject.subject_id);
+                    $('#subject-name').text(subject.subject_name);
+                    (() => {
+                        const { section } = subject;
+                        options = ''
+                        section.forEach(sec => {
+                            options += `<option>${sec.section_id}</option>`;
+                        });
+                        $('#sections').html(options);
+                        defaultSec = { ...section[0] };
+                        console.log(defaultSec)
+                        setSectionValue(defaultSec)
+
+                    })();
+                }
+            })
+            console.log('ควย');
+            //render select tag options
+
         });
 
         $('#sections').on('change', (e) => {
-          const sectionId = e.target.value;
-          const selected = testData.section.find(sec => sec.section_id == sectionId);
-          setSectionValue(selected);
+            const sectionId = e.target.value;
+            const selected = subject.section.find(sec => sec.section_id == sectionId);
+            setSectionValue(selected);
         });
-      });
+        $('#confirm-subject').on('click', () => {
+            document.querySelector('form[name="confirm-subject"]').submit()
+        })
+    });
 
-      const setSectionValue = (section) => {
-              $('#schedule').html(section.study_day);
-              $('#teacher-name').html(section.teacher);
-              $('#study-room').html(section.room);
-              $('#all-seat').html(section.person);
-              $('#seat-left').html(section.seat_left);
-          }
-    </script>
-    
-  </body>
+    const setSectionValue = (section) => {
+        $('#schedule').html(section.study_day);
+        $('#teacher-name').html(section.teacher);
+        $('#study-room').html(section.room);
+        $('#all-seat').html(section.person);
+        $('#seat-left').html(section.seat_left);
+    }
+</script>
+
+</body>
 </html>
+{#<html>#}
+{#<head>#}
+{#    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />#}
+{#    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet" />#}
+{#    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet" />#}
+{#    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />#}
+{##}
+{#    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>#}
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>#}
+{##}
+{#    <link rel="stylesheet" href="/static/styles/addSubject.css" />#}
+{#    <link rel="stylesheet" href="/static/styles/theme.css" />#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0" />#}
+{#    <meta charset="UTF-8" />#}
+{#    <title>KMITL</title>#}
+{#    <link rel="icon" href="/static/pics/kmitl_logo.png" />#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<nav id="navbar" class="ui secondary pointing menu">#}
+{#    <div id="navbar-inner">#}
+{#        <div class="navbar-brand header-item">#}
+{#            <a href="./index.html"><b>KMITL</b></a>#}
+{#        </div>#}
+{#        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->#}
+{#        <div class="header-item -right">#}
+{#            <a href="login.html" style="color: white; font-size: 1.25em;">ออกจากระบบ</a>#}
+{#        </div>#}
+{#        <!-- </div> -->#}
+{#    </div>#}
+{#</nav>#}
+{##}
+{#<div class="content-wrapper">#}
+{#    <div class="ui container main-container">#}
+{#        <h2 class="header-text">เพิ่มคิวในรายวิชา</h2>#}
+{#        <form name="subject-search" method="GET">#}
+{#            <div class="ui input">#}
+{#                <input type="text" name="subject_id" />#}
+{#            </div>#}
+{#        </form>#}
+{#        <div class="subject-canvas" id="subject-display">#}
+{#            <div class="subject-container">#}
+{#                <div class="header">#}
+{#                    <h3 class="subject-id" id="subject-id"></h3>#}
+{#                    <h3 class="subject-name" id="subject-name"></h3>#}
+{#                </div>#}
+{#                <div class="content">#}
+{#                    <form name="confirm-subject" method="POST">#}
+{#                        <div class="info">#}
+{#                            <div class="header"><label for="section">Section</label></div>#}
+{#                            <div class="detail">#}
+{#                                <select class="ui dropdown" name="section" id="sections">#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="info">#}
+{#                            <div class="header">เวลาเรียน</div>#}
+{#                            <div class="detail" id="schedule">.</div>#}
+{#                        </div>#}
+{#                        <div class="ui accordion" id="more-info">#}
+{#                            <div class="title">More info <i class="dropdown icon"></i></div>#}
+{#                            <div class="content">#}
+{#                                <div class="info">#}
+{#                                    <div class="header">สถานที่</div>#}
+{#                                    <div class="detail" id="study-room">ตึกพระเทพฯ D-109</div>#}
+{#                                </div>#}
+{#                                <div class="info">#}
+{#                                    <div class="header">ผู้สอน</div>#}
+{#                                    <div class="detail" id="teacher-name"></div>#}
+{#                                </div>#}
+{#                                <div class="info">#}
+{#                                    <div class="header">จำนวน นศ.</div>#}
+{#                                    <div class="detail"><span id="all-seat"></span> (ว่าง <span class="-green" id="seat-left"></span> ที่)</div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="ui modal tiny confirm-modal" id="confirm-modal">#}
+{#                            <div class="content">ต้องการทำการจองคิวในรายวิชา <span class="subject-name">Special Topics in Information Technology - Image Transformation and Recognition</span> ใช่หรือไม่</div>#}
+{#                            <div class="button-group">#}
+{#                                <button class="ui button" id="hide-confirm">ไม่</button>#}
+{#                                <button class="ui button confirm-button" id="confirm-subject">ใช่</button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <button class="ui button confirm-button trigger-button" id="trigger-button">ยืนยัน</button>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="ui modal mini progress-modal" id="progress-modal">#}
+{#    <div class="header">กำลังดำเนินการ</div>#}
+{#    <div class="progress"><div class="lds-facebook"><div></div><div></div><div></div></div></div>#}
+{#    <div class="content">#}
+{#        <div></div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<script>#}
+{#    // const testData = {'subject_id': '0000002',#}
+{#    // 'subject_name': 'test2',#}
+{#    // 'midterm': '01-03-2020',#}
+{#    // 'final': '06-03-2022',#}
+{#    // 'section': [#}
+{#    //   {'person': 5,#}
+{#    //   'room': 'xxx xxxx',#}
+{#    //   'study_day': 'friday 16:30-19:30',#}
+{#    //   'seat_left': 0, 'section_id': 1,#}
+{#    //   'teacher': 'EIEI'},#}
+{#    //   {'person': 5,#}
+{#    //   'room': 'xxx xxxx',#}
+{#    //   'study_day': 'friday 13:00-16:00',#}
+{#    //   'seat_left': 0, 'section_id': 2,#}
+{#    //   'teacher': 'HEHEHEHEHEh'}#}
+{#    // ]#}
+{#    // }#}
+{#    const testData = {#}
+{#        'subject_id': '0000001',#}
+{#        'subject_name': 'test',#}
+{#        'midterm': "'05-03-2020'",#}
+{#        'final': "'05-05-2020",#}
+{#        'section': [#}
+{#            {'person': 10, 'room': 'xxx xxxxx', 'study_day': 'monday 09:00-12:00', 'seat_left': 5, 'section_id': 1, 'teacher': 'Yoda'},#}
+{#            {'person': 10, 'room': 'xxx xxxx', 'study_day': 'wednesday 13:00-16:00', 'seat_left': 10, 'section_id': 2, 'teacher': 'YADA'},#}
+{#            {'person': 55, 'room': 'xxx xxxx', 'study_day': 'friday 24:60-26:80', 'seat_left': 15, 'section_id': 3, 'teacher': 'DIO'}#}
+{#        ]};#}
+{#    $(document).ready(() => {#}
+{#        $('.ui.dropdown#sections').dropdown();#}
+{#        $('.ui.accordion#more-info').accordion();#}
+{#        $('.ui.modal#confirm-modal').modal();#}
+{#        $('.ui.modal#progress-modal').modal({#}
+{#            // dimmerSettings: { opacity: 0 }#}
+{#        })#}
+{##}
+{#        // $('#trigger-button').css({display: 'inline-block'});#}
+{##}
+{#        $('#trigger-button').on('click', () => {#}
+{#            $('.ui.modal#confirm-modal').modal('show');#}
+{#            console.log('ควย');#}
+{#        })#}
+{##}
+{#        $('#hide-confirm').on('click', () => {#}
+{#            const $confirmModal = $('.ui.modal#confirm-modal')#}
+{#            $confirmModal.modal('hide')#}
+{#        })#}
+{##}
+{##}
+{##}
+{#        $('form[name="subject-search"]').on('submit', (event) => {#}
+{#            event.preventDefault();#}
+{#            $.ajax({#}
+{#                url: 'https://jsonplaceholder.typicode.com/posts',#}
+{#                method: 'GET',#}
+{#                beforeSend: () => $('#progress-modal').modal('show'),#}
+{#                success: () => {#}
+{#                    $('#progress-modal').modal('hide');#}
+{#                    $('#subject-display').css({display: 'flex'});#}
+{#                    $('#trigger-button').css({display: 'unset'});#}
+{##}
+{#                    $('#subject-id').text(testData.subject_id);#}
+{#                    $('#subject-name').text(testData.subject_name);#}
+{#                    (() => {#}
+{#                        const { section } = testData;#}
+{#                        options = ''#}
+{#                        section.forEach(sec => {#}
+{#                            options += `<option>${sec.section_id}</option>`;#}
+{#                        });#}
+{#                        $('#sections').html(options);#}
+{#                        defaultSec = { ...section[0] };#}
+{#                        console.log(defaultSec)#}
+{#                        setSectionValue(defaultSec)#}
+{##}
+{#                    })();#}
+{#                }#}
+{#            })#}
+{#            console.log('ควย');#}
+{#            //render select tag options#}
+{##}
+{#        });#}
+{##}
+{#        $('#sections').on('change', (e) => {#}
+{#            const sectionId = e.target.value;#}
+{#            const selected = testData.section.find(sec => sec.section_id == sectionId);#}
+{#            setSectionValue(selected);#}
+{#        });#}
+{#    });#}
+{##}
+{#    const setSectionValue = (section) => {#}
+{#        $('#schedule').html(section.study_day);#}
+{#        $('#teacher-name').html(section.teacher);#}
+{#        $('#study-room').html(section.room);#}
+{#        $('#all-seat').html(section.person);#}
+{#        $('#seat-left').html(section.seat_left);#}
+{#    }#}
+{#</script>#}
+{##}
+{#</body>#}
+{#</html>#}
